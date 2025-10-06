@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { blogCategories, blog_data } from "../assets/assets";
 import BlogCard from "./BlogCard";
+import { motion } from "motion/react";
 
 const BlogList = () => {
   const [menu, setMenu] = useState("All");
