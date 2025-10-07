@@ -5,6 +5,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
   const { blog, createdAt, _id } = comment;
 
   const BlogDate = new Date(createdAt);
+
   return (
     <tr className="order-y border-gray-300">
       <td className=" px-6 py-4">
@@ -15,7 +16,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
         <br />
         <b className="font-medium text-gray-600">Comment</b> : {comment.content}
       </td>
-      <td className="'px-6 py-4 max-sm:hidden">
+      <td className="px-6 py-4 max-sm:hidden">
         {BlogDate.toLocaleDateString()}
       </td>
       <td className="px-6 py-4">
