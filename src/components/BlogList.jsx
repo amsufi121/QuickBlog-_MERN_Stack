@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { blogCategories } from "../assets/assets";
 import BlogCard from "./BlogCard";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+
 import { useAppContext } from "../context/AppContext";
 
 const BlogList = () => {
@@ -9,14 +10,14 @@ const BlogList = () => {
   const { blogs, input } = useAppContext();
 
   const filteredBlogs = () => {
-    if (input === "") {
-      return blogs;
-    }
-    return blogs.filter(
-      (blog) =>
+    return blogs.filter((blog) => {
+      const matchesInput =
         blog.title.toLowerCase().includes(input.toLowerCase()) ||
-        blog.category.toLowerCase().includes(input.toLowerCase())
-    );
+        blog.category.toLowerCase().includes(input.toLowerCase());
+      const matchesMenu =
+        menu === "All" || blog.category.toLowerCase() === menu.toLowerCase();
+      return matchesInput && matchesMenu;
+    });
   };
 
   return (
